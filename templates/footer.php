@@ -1,4 +1,3 @@
-
     <footer>
         <section class="flex-container">
             <div class="flex-container-block">
@@ -8,14 +7,14 @@
                 <a href="#">Детям (2514)</a>
                 <a href="#">Новинки (76)</a>
             </div>
-            <div class="flex-container-block">
+            <div class="flex-container-block" style="padding-left: 150px;">
                 <h3>МАГАЗИН</h3>
                 <a href="#">О нас</a>
                 <a href="#">Доставка</a>
                 <a href="#">Работай с нами</a>
                 <a href="#">Контакты</a>
             </div>
-            <div class="flex-container-block">
+            <div class="flex-container-block" style="padding-left: 110px;">
                 <h3>МЫ В СОЦИАЛЬНЫХ СЕТЯХ</h3>
                 <p>Сайт разработан в inordic.ru</p>
                 <p>2018 &copy; Все права защищены</p>
