@@ -5,7 +5,7 @@ $db_pass = '';
 $db_name = 'project3007';
 $mysqli = new mysqli($db_host, $db_user, $db_pass, $db_name);
 $mysqli->set_charset('utf8');
-if (mysqli_connect_errno($mysqli)) {
-    echo "Не удалось подключиться к базе данных: " . mysqli_connect_error();
+if ($mysqli->connect_errno) {
+    echo "Не удалось подключиться к базе данных: " . $mysqli->connect_error;
     die();
 }
