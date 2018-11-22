@@ -12,7 +12,10 @@
 }
 
 .h3 {
-    
+    font-family: Arial;
+    font-style: italic;
+    text-align: center;
+    font-size: 12px;
 }
 .button {
 
