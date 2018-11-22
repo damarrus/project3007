@@ -39,5 +39,12 @@ class Category
     public function createTable($new_category) 
     {
         global $mysqli;
+
+        $query = "UPDATE categories SET category='$new_category'";
+
     }
 }
+
+$categories = Category::getAll();
+echo '<pre>';
+var_dump($categories);
