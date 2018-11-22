@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: localhost:3306
--- Время создания: Ноя 15 2018 г., 17:04
+-- Время создания: Ноя 22 2018 г., 18:08
 -- Версия сервера: 5.7.23
 -- Версия PHP: 7.2.8
 
@@ -37,8 +37,30 @@ CREATE TABLE `categories` (
 --
 
 INSERT INTO `categories` (`category_id`, `title`, `description`) VALUES
-(1, 'Спорт', ''),
-(2, 'Отдых', '');
+(1, 'Верхняя одежда', 'Разная верхняя одежда'),
+(2, 'Аксессуары', 'Разные аксессуары'),
+(3, 'Обувь', 'Разная обувь');
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `collections`
+--
+
+CREATE TABLE `collections` (
+  `collection_id` int(11) NOT NULL,
+  `title` varchar(255) NOT NULL,
+  `description` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Дамп данных таблицы `collections`
+--
+
+INSERT INTO `collections` (`collection_id`, `title`, `description`) VALUES
+(1, 'Мужчинам', 'Для мужчин'),
+(2, 'Женщинам', 'Для женщин'),
+(3, 'Детям', 'Для детей');
 
 -- --------------------------------------------------------
 
@@ -97,6 +119,7 @@ CREATE TABLE `products` (
   `description` varchar(255) NOT NULL,
   `price` int(11) NOT NULL,
   `category_id` int(11) NOT NULL,
+  `collection_id` int(11) NOT NULL,
   `out_of_stock` int(11) NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -104,12 +127,12 @@ CREATE TABLE `products` (
 -- Дамп данных таблицы `products`
 --
 
-INSERT INTO `products` (`product_id`, `title`, `description`, `price`, `category_id`, `out_of_stock`) VALUES
-(1, 'Футбольный мяч', '', 300, 1, 0),
-(2, 'Боксерские перчатки', '', 2000, 1, 0),
-(3, 'Очки для плавания', '', 1000, 1, 0),
-(4, 'Гамак', '', 3000, 2, 0),
-(5, 'Палатка', '', 5000, 2, 0);
+INSERT INTO `products` (`product_id`, `title`, `description`, `price`, `category_id`, `collection_id`, `out_of_stock`) VALUES
+(1, 'Куртка', 'описание', 300, 1, 1, 0),
+(2, 'Кроссовки', 'описание', 2000, 3, 1, 0),
+(3, 'Очки', 'описание', 1000, 2, 2, 0),
+(4, 'Шуба', 'описание', 3000, 1, 2, 0),
+(5, 'Ботинки', 'описание', 5000, 3, 3, 0);
 
 -- --------------------------------------------------------
 
@@ -133,15 +156,18 @@ CREATE TABLE `sizes` (
   `value` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
--- --------------------------------------------------------
-
 --
--- Структура таблицы `supercategories`
+-- Дамп данных таблицы `sizes`
 --
 
-CREATE TABLE `supercategories` (
-  `supercategory_id` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+INSERT INTO `sizes` (`size_id`, `value`) VALUES
+(1, 'S'),
+(2, 'M'),
+(3, 'L'),
+(4, '36'),
+(5, '37'),
+(6, '38'),
+(7, '39');
 
 -- --------------------------------------------------------
 
@@ -168,6 +194,12 @@ ALTER TABLE `categories`
   ADD PRIMARY KEY (`category_id`);
 
 --
+-- Индексы таблицы `collections`
+--
+ALTER TABLE `collections`
+  ADD PRIMARY KEY (`collection_id`);
+
+--
 -- Индексы таблицы `orders`
 --
 ALTER TABLE `orders`
@@ -178,19 +210,14 @@ ALTER TABLE `orders`
 --
 ALTER TABLE `products`
   ADD PRIMARY KEY (`product_id`),
-  ADD KEY `category_id` (`category_id`);
+  ADD KEY `category_id` (`category_id`),
+  ADD KEY `collection_id` (`collection_id`);
 
 --
 -- Индексы таблицы `sizes`
 --
 ALTER TABLE `sizes`
   ADD PRIMARY KEY (`size_id`);
-
---
--- Индексы таблицы `supercategories`
---
-ALTER TABLE `supercategories`
-  ADD PRIMARY KEY (`supercategory_id`);
 
 --
 -- Индексы таблицы `users`
@@ -207,7 +234,13 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT для таблицы `categories`
 --
 ALTER TABLE `categories`
-  MODIFY `category_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `category_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT для таблицы `collections`
+--
+ALTER TABLE `collections`
+  MODIFY `collection_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT для таблицы `orders`
@@ -225,13 +258,7 @@ ALTER TABLE `products`
 -- AUTO_INCREMENT для таблицы `sizes`
 --
 ALTER TABLE `sizes`
-  MODIFY `size_id` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT для таблицы `supercategories`
---
-ALTER TABLE `supercategories`
-  MODIFY `supercategory_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `size_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT для таблицы `users`
