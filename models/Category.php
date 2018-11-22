@@ -36,7 +36,8 @@ class Category
         return $categories;
     }
 
-    INSERT INTO `categories` (`category_id`, `title`, `description`) VALUES
-    ,
-    ;
+    public function createTable($new_category) 
+    {
+        global $mysqli;
+    }
 }
