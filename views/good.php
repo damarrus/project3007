@@ -23,4 +23,5 @@
     </div>
     <div class="goods-add-to-cart-button">ДОБАВИТЬ В КОРЗИНУ</div>
     <div class="goods-empty"></div>
+</main>
 <!-- <?php require_once "../templates/footer.php" ?> -->
