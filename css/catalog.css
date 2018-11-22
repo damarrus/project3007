@@ -1,0 +1,41 @@
+.catalog-main {
+    margin: 32px 32px 0 32px;
+    background: white;
+  }
+  
+  .catalog-main .catalog-category {
+    font-size: 12px;
+    color: #606060;
+    margin-bottom: 24px;
+  }
+
+  .catalog-main .catalog-title {
+    font-size: 24px;
+    text-align: center;
+    margin-bottom: 14px;
+  }
+
+  .catalog-main .catalog-title-tovar {
+    font-size: 14px;
+    color: #606060;
+    text-align: center;
+    margin-bottom: 24px;
+  }
+
+  .catalog-main .catalog-flex-select {
+    font-size: 12px;
+    color: #606060;
+    display: flex;
+    justify-content: center;
+  }
+
+  .catalog-main .catalog-flex-select1 {
+    position: relative;
+
+  }
+
+  .catalog-flex-select1:after {
+      position: absolute;
+      content: '';
+      
+  }
