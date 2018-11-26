@@ -3,7 +3,7 @@
 <link rel="stylesheet" href="../css/main.css">
     <h1 class="h1">НОВЫЕ ПОСТУПЛЕНИЯ ВЕСНЫ</h1> <br>
     <h2 class="h2">Мы подготовили для вас лучшие новинки сезона</h2> <br>
-    <button>Посмотреть новинки</button> <br>
+    <button class="button">Посмотреть новинки</button> <br>
 
     <div class="main-page">
                     <!-- <div class="jeans-jackets">
