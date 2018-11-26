@@ -19,7 +19,7 @@ class Product
         $result = $mysqli->query($query);
         $product_data = $result->fetch_assoc();
 
-        $this->id = $id;
+        $this->product_id = $id;
         $this->title = $product_data['title'];
         $this->description = $product_data['description'];
         $this->price = $product_data['price'];
@@ -31,7 +31,7 @@ class Product
     {
         global $mysqli;
 
-        $query = "SELECT product_id FROM products";
+        $query = "SELECT product_id FROM products ORDER BY product_id";
         $result = $mysqli->query($query);
 
         $users = [];
@@ -45,6 +45,16 @@ class Product
     public function getTitle()
     {
         return $this->title;
+    }
+
+    public function getPrice()
+    {
+        return $this->price;
+    }
+
+    public function getProductId()
+    {
+        return $this->product_id;
     }
 
     // public function update($) 
