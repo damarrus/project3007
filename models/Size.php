@@ -25,7 +25,6 @@ class Size
         return $result_assoc['productValue'];
     }
 
-    }
     public function getValue()
     {
         return $this->value;
