@@ -22,7 +22,7 @@
         </select>
     </div>
     <?php foreach ($products as $product) {
-        echo '<h2>'.$product->getTitle().'</h2>';
+       echo '<h2>'.$product->getTitle().'</h2>';
     } ?>
 
 </main>

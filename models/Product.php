@@ -7,6 +7,7 @@ class Product
     private $product_id;
     private $title;
     private $price;
+    private $image;
     private $description;
     private $category_id;
     private $out_of_stock;
@@ -15,7 +16,7 @@ class Product
     {
         global $mysqli;
 
-        $query = "SELECT title, description, price, category_id, out_of_stock FROM products WHERE product_id=$id";
+        $query = "SELECT title, description, price, image, category_id, out_of_stock FROM products WHERE product_id=$id";
         $result = $mysqli->query($query);
         $product_data = $result->fetch_assoc();
 
@@ -23,6 +24,7 @@ class Product
         $this->title = $product_data['title'];
         $this->description = $product_data['description'];
         $this->price = $product_data['price'];
+        $this->image = $product_data['image'];
         $this->category_id = $product_data['category_id'];
         $this->out_of_stock = $product_data['out_of_stock'];
     }
@@ -46,6 +48,32 @@ class Product
     {
         return $this->title;
     }
+
+    public function getImage()
+    {
+        return $this->image;
+    }
+
+    public function getPrice()
+    {
+        return $this->price;
+    }
+
+    public function getDescription()
+    {
+        return $this->description;
+    }
+
+    public function getCategoryId()
+    {
+        return $this->category_id;
+    }
+
+    public function getOutOfStock()
+    {
+        return $this->out_of_stock;
+    }
+
 
     // public function update($) 
     // {
