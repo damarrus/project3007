@@ -21,6 +21,7 @@
             <option>3000-6000 руб.</option>
         </select>
     </div>
+
     <?php
         echo "<div class=\"catalog-items\">"; 
         foreach ($products as $product) {
