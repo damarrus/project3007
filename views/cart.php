@@ -22,26 +22,26 @@
                     </select>
                 </div>
                 <div class="cart-form-name forma">
-                    <p class="cart-form-2">Имя:</p>
-                    <input type="text" name="" id="" class="cart-form-1">
-                    <p class="cart-form-2">Фамилия:</p>
-                    <input type="text" name="" id="" class="cart-form-1">
+                    Имя:
+                    <input type="text" name="" id="" class="form">
+                    Фамилия:
+                    <input type="text" name="" id="" class="form">
                 </div>
                 <div class="cart-form-adres forma">
-                    <p class="cart-form-2">Адрес:</p>
-                    <input type="text" name="" id="" size="50" class="cart-form-1">
+                    Адрес:
+                    <input type="text" name="" id="" size="50" class="form">
                 </div>
                 <div class="cart-form-city forma">
-                    <p class="cart-form-2">Город:</p>
-                    <input type="text" name="" id="" class="cart-form-1">
-                    <p class="cart-form-2">Индекс:</p>
-                    <input type="text" name="" id="" class="cart-form-1">
+                    Город:
+                    <input type="text" name="" id="" class="form">
+                    Индекс:
+                    <input type="text" name="" id="" class="form">
                 </div>
-                <div class="cart-form-telefone forma" class="cart-form-1">
-                    <p class="cart-form-2">Телефон:</p>
-                    <input type="text" name="" id="" class="cart-form-1">
-                    <p class="cart-form-2">@mail.ru:</p>
-                    <input type="email" name="" id="" class="cart-form-1">
+                <div class="cart-form-telefone forma" class="form">
+                    Телефон:
+                    <input type="text" name="" id="" class="form">
+                    @mail.ru:
+                    <input type="email" name="" id="" class="form">
                 </div>
             </div>
         </div>
