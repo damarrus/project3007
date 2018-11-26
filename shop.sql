@@ -131,7 +131,7 @@ CREATE TABLE `products` (
 INSERT INTO `products` (`product_id`, `title`, `description`, `price`, `image`, `category_id`, `collection_id`, `out_of_stock`) VALUES
 (1, 'Куртка', 'описание', 300, '1.jpg', 1, 1, 0),
 (2, 'Кроссовки', 'описание', 2000, '2.jpg', 3, 1, 0),
-(3, 'Очки', 'описание', 1000, '3.jpg', 2, 2, 0),
+(3, 'Очки', 'описание', 1000, '3.png', 2, 2, 0),
 (4, 'Шуба', 'описание', 3000, '4.jpg', 1, 2, 0),
 (5, 'Ботинки', 'описание', 5000, '5.jpg', 3, 3, 0);
 
