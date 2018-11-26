@@ -1,6 +1,6 @@
 <?php
 
-require_once 'db.php';
+require_once '../db.php';
 
 class Product 
 {
@@ -15,9 +15,9 @@ class Product
     {
         global $mysqli;
 
-        $query = "SELECT title, description, price, category_id, out_of_stock FROM product WHERE product_id=$id";
+        $query = "SELECT title, description, price, category_id, out_of_stock FROM products WHERE product_id=$id";
         $result = $mysqli->query($query);
-        $user_data = $result->fetch_assoc();
+        $product_data = $result->fetch_assoc();
 
         $this->id = $id;
         $this->title = $product_data['title'];
@@ -31,15 +31,20 @@ class Product
     {
         global $mysqli;
 
-        $query = "SELECT product_id FROM product";
+        $query = "SELECT product_id FROM products";
         $result = $mysqli->query($query);
 
         $users = [];
         while ($product_data = $result->fetch_assoc()) {
-            $products[] = new product($product_data['product_id']);
+            $products[] = new Product($product_data['product_id']);
         }
 
         return $products;
+    }
+
+    public function getTitle()
+    {
+        return $this->title;
     }
 
     // public function update($) 

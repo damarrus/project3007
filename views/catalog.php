@@ -21,7 +21,9 @@
             <option>3000-6000 руб.</option>
         </select>
     </div>
-
+    <?php foreach ($products as $product) {
+        echo '<h2>'.$product->getTitle().'</h2>';
+    } ?>
 
 </main>
 <?php require_once "../templates/footer.php" ?>
