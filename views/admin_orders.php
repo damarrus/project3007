@@ -27,24 +27,16 @@
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <a href="#"><th scope="row">1</th></a>
-                    <td>Mark</td>
-                    <td>Otto</td>
-                    <td>@mdo</td>
-                </tr>
-                <tr>
-                    <a href="#"><th scope="row">2</th></a>
-                    <td>Jacob</td>
-                    <td>Thornton</td>
-                    <td>@fat</td>
-                </tr>
-                <tr>
-                    <a href="#"><th scope="row">3</th></a>
-                    <td>Larry</td>
-                    <td>the Bird</td>
-                    <td>@twitter</td>
-                </tr>
+              <?php
+              foreach ($orders as $order) {
+                echo '<tr>';
+                echo '<td>'.$order->getId(). '</td>';
+                echo '<td>'.$order->getId(). '</td>';
+                echo '<td>'.$order->getStatus(). '</td>';
+                echo '<td>'.$order->getAddress(). '</td>';
+                echo '</tr>';
+                } 
+              ?>
             </tbody>
         </table>
     </div>

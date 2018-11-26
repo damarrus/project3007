@@ -18,6 +18,26 @@ class Order
         $this->address = $order_data['address'];
     }
 
+    public static function getAll()
+    {
+        global $mysqli;
+
+        $query = "SELECT order_id FROM orders";
+        $result = $mysqli->query($query);
+
+        $orders = [];
+        while ($order_data = $result->fetch_assoc()) {
+            $orders[] = new Order($order_data['order_id']);
+        }
+
+        return $orders;
+    }
+
+    public function getId()
+    {
+        return $this->id;
+    }
+
     public function getProductTotal($product_id)
     {
         global $mysqli;
