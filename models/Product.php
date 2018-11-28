@@ -9,13 +9,14 @@ class Product
     private $price;
     private $description;
     private $category_id;
+    private $collection_id;
     private $out_of_stock;
 
     public function __construct($id)
     {
         global $mysqli;
 
-        $query = "SELECT title, description, price, category_id, out_of_stock FROM products WHERE product_id=$id";
+        $query = "SELECT title, description, price, category_id, collection_id, out_of_stock FROM products WHERE product_id=$id";
         $result = $mysqli->query($query);
         $product_data = $result->fetch_assoc();
 
@@ -24,6 +25,7 @@ class Product
         $this->description = $product_data['description'];
         $this->price = $product_data['price'];
         $this->category_id = $product_data['category_id'];
+        $this->collection_id = $product_data['collection_id'];
         $this->out_of_stock = $product_data['out_of_stock'];
     }
 
@@ -57,6 +59,16 @@ class Product
         return $this->product_id;
     }
 
+    public function getCategoryId()
+    {
+        return $this->category_id;
+    }
+
+    public function getCollectionId()
+    {
+        return $this->collection_id;
+    }
+
     // public function update($) 
     // {
     //     global $mysqli;
@@ -66,11 +78,6 @@ class Product
         
     //     return $result;
     // }
-
-
-
-
-
 
 }
 
