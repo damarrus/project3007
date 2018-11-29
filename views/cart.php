@@ -5,6 +5,15 @@
             <h2>ВАША КОРЗИНА</h2>
             <p><i>Товары резервируются на ограниченное время</i></p>
         </div>
+        <?php 
+            foreach ($product_info as $product_item) {
+                echo "<div class=\"cart-product\">
+                        <h3>{$product_item['product_number_in_cart']}. {$product_item['product_title']}</h3>
+                        <h4>Размер: {$product_item['product_size']}</h4>
+                        <p>{$product_item['product_count']} шт.</p>
+                      </div>";
+            }
+        ?>
         <div class="cart-product">
 
         </div>
