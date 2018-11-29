@@ -88,11 +88,6 @@ class Product
         return $this->product_id;
     }
 
-    public function getCategoryId()
-    {
-        return $this->category_id;
-    }
-
     public function getCollectionId()
     {
         return $this->collection_id;
