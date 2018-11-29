@@ -29,14 +29,21 @@ class Product
         $this->out_of_stock = $product_data['out_of_stock'];
     }
 
-    public static function getAll()
+    public static function getAll($category_id = false, $collection_id = false)
     {
         global $mysqli;
+        $conditions = '';
+        if ($category_id) {
+            $conditions .= " AND category_id=$category_id";
+        }
+        if ($collection_id) {
+            $conditions .= " AND collection_id=$collection_id";
+        }
 
-        $query = "SELECT product_id FROM products ORDER BY product_id";
+        $query = "SELECT product_id FROM products WHERE 1 $conditions ORDER BY product_id";
         $result = $mysqli->query($query);
 
-        $users = [];
+        $products = [];
         while ($product_data = $result->fetch_assoc()) {
             $products[] = new Product($product_data['product_id']);
         }
