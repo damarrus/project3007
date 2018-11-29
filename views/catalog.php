@@ -21,6 +21,7 @@
             <option>3000-6000 руб.</option>
         </select>
     </div>
+
     <?php
         if ($products == NULL) {
             echo "<div class=\"catalog-items\">Товаров, соответствующих данным критериям, не найдено.</div>";

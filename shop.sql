@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: localhost:3306
--- Время создания: Ноя 22 2018 г., 18:08
+-- Время создания: Ноя 26 2018 г., 16:30
 -- Версия сервера: 5.7.23
 -- Версия PHP: 7.2.8
 
@@ -71,16 +71,17 @@ INSERT INTO `collections` (`collection_id`, `title`, `description`) VALUES
 CREATE TABLE `orders` (
   `order_id` int(11) NOT NULL,
   `status` int(11) NOT NULL,
-  `address` varchar(255) NOT NULL
+  `address` varchar(255) NOT NULL,
+  `user_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Дамп данных таблицы `orders`
 --
 
-INSERT INTO `orders` (`order_id`, `status`, `address`) VALUES
-(1, 1, 'Moscow'),
-(2, 2, 'Perm');
+INSERT INTO `orders` (`order_id`, `status`, `address`, `user_id`) VALUES
+(1, 1, 'Moscow', 2),
+(2, 2, 'Perm', 2);
 
 -- --------------------------------------------------------
 
@@ -91,6 +92,7 @@ INSERT INTO `orders` (`order_id`, `status`, `address`) VALUES
 CREATE TABLE `order_products` (
   `order_id` int(11) NOT NULL,
   `product_id` int(11) NOT NULL,
+  `size_id` int(11) NOT NULL,
   `price` int(11) NOT NULL,
   `count` int(11) NOT NULL DEFAULT '1'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -99,13 +101,11 @@ CREATE TABLE `order_products` (
 -- Дамп данных таблицы `order_products`
 --
 
-INSERT INTO `order_products` (`order_id`, `product_id`, `price`, `count`) VALUES
-(1, 2, 0, 0),
-(1, 4, 0, 0),
-(2, 3, 0, 0),
-(2, 4, 0, 0),
-(2, 5, 0, 0),
-(2, 5, 0, 0);
+INSERT INTO `order_products` (`order_id`, `product_id`, `size_id`, `price`, `count`) VALUES
+(1, 1, 2, 300, 1),
+(1, 3, 1, 1000, 1),
+(2, 3, 1, 1000, 1),
+(2, 5, 7, 5000, 1);
 
 -- --------------------------------------------------------
 
@@ -118,6 +118,7 @@ CREATE TABLE `products` (
   `title` varchar(255) NOT NULL,
   `description` varchar(255) NOT NULL,
   `price` int(11) NOT NULL,
+  `image` varchar(255) NOT NULL,
   `category_id` int(11) NOT NULL,
   `collection_id` int(11) NOT NULL,
   `out_of_stock` int(11) NOT NULL DEFAULT '0'
@@ -127,12 +128,12 @@ CREATE TABLE `products` (
 -- Дамп данных таблицы `products`
 --
 
-INSERT INTO `products` (`product_id`, `title`, `description`, `price`, `category_id`, `collection_id`, `out_of_stock`) VALUES
-(1, 'Куртка', 'описание', 300, 1, 1, 0),
-(2, 'Кроссовки', 'описание', 2000, 3, 1, 0),
-(3, 'Очки', 'описание', 1000, 2, 2, 0),
-(4, 'Шуба', 'описание', 3000, 1, 2, 0),
-(5, 'Ботинки', 'описание', 5000, 3, 3, 0);
+INSERT INTO `products` (`product_id`, `title`, `description`, `price`, `image`, `category_id`, `collection_id`, `out_of_stock`) VALUES
+(1, 'Куртка', 'описание', 300, '1.jpg', 1, 1, 0),
+(2, 'Кроссовки', 'описание', 2000, '2.jpg', 3, 1, 0),
+(3, 'Очки', 'описание', 1000, '3.png', 2, 2, 0),
+(4, 'Шуба', 'описание', 3000, '4.jpg', 1, 2, 0),
+(5, 'Ботинки', 'описание', 5000, '5.jpg', 3, 3, 0);
 
 -- --------------------------------------------------------
 
@@ -144,6 +145,22 @@ CREATE TABLE `product_sizes` (
   `product_id` int(11) NOT NULL,
   `size_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Дамп данных таблицы `product_sizes`
+--
+
+INSERT INTO `product_sizes` (`product_id`, `size_id`) VALUES
+(1, 2),
+(1, 3),
+(2, 4),
+(2, 5),
+(2, 6),
+(2, 7),
+(3, 1),
+(4, 2),
+(5, 4),
+(5, 7);
 
 -- --------------------------------------------------------
 
@@ -161,7 +178,7 @@ CREATE TABLE `sizes` (
 --
 
 INSERT INTO `sizes` (`size_id`, `value`) VALUES
-(1, 'S'),
+(1, 'Без размера'),
 (2, 'M'),
 (3, 'L'),
 (4, '36'),
@@ -184,6 +201,14 @@ CREATE TABLE `users` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
+-- Дамп данных таблицы `users`
+--
+
+INSERT INTO `users` (`user_id`, `name`, `email`, `password`, `role`) VALUES
+(1, 'Admin', 'admin@admin.ru', '123456', 1),
+(2, 'Vasya', 'vasya@mail.ru', '654321', 2);
+
+--
 -- Индексы сохранённых таблиц
 --
 
@@ -204,6 +229,12 @@ ALTER TABLE `collections`
 --
 ALTER TABLE `orders`
   ADD PRIMARY KEY (`order_id`);
+
+--
+-- Индексы таблицы `order_products`
+--
+ALTER TABLE `order_products`
+  ADD PRIMARY KEY (`order_id`,`product_id`,`size_id`);
 
 --
 -- Индексы таблицы `products`
@@ -264,7 +295,7 @@ ALTER TABLE `sizes`
 -- AUTO_INCREMENT для таблицы `users`
 --
 ALTER TABLE `users`
-  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- Ограничения внешнего ключа сохраненных таблиц
