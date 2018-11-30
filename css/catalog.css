@@ -1,48 +1,53 @@
 .catalog-main {
-    margin: 32px 32px 0 32px;
-    background: white;
-  }
-  
-  .catalog-main .catalog-category {
-    font-size: 12px;
-    color: #606060;
-    margin-bottom: 24px;
-  }
+  margin: 32px 32px 0 32px;
+  background: white;
+}
 
-  .catalog-main .catalog-title {
-    font-size: 24px;
-    text-align: center;
-    margin-bottom: 14px;
-  }
+.catalog-main .catalog-category {
+  font-size: 12px;
+  color: #606060;
+  margin-bottom: 24px;
+}
 
-  .catalog-main .catalog-title-tovar {
-    font-size: 14px;
-    color: #606060;
-    text-align: center;
-    margin-bottom: 24px;
-  }
+.catalog-main .catalog-title {
+  font-size: 24px;
+  text-align: center;
+  margin-bottom: 14px;
+}
 
-  .catalog-main .catalog-flex-select {
-    font-size: 12px;
-    color: #606060;
-    display: flex;
-    justify-content: center;
-  }
+.catalog-main .catalog-title-tovar {
+  font-size: 14px;
+  color: #606060;
+  text-align: center;
+  margin-bottom: 24px;
+}
 
-  .catalog-main .catalog-flex-select1 {
-    position: relative;
+.catalog-main .catalog-flex-select {
+  font-size: 12px;
+  color: #606060;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
 
-  }
+.catalog-main .catalog-flex-select1 {
+  position: relative;
+}
 
-  .catalog-flex-select1:after {
-      position: absolute;
-      content: '';
-      
-  }
+.catalog-flex-select1:after {
+  position: absolute;
+  content: '';
+}
 
 .catalog-items {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
   margin-top: 40px;
 }
 
@@ -80,8 +85,12 @@
 }
 
 .catalog-pages {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
 .catalog-pages div {
@@ -105,3 +114,4 @@
 .catalog-page-disabled {
   background: gray;
 }
+/*# sourceMappingURL=catalog.css.map */
