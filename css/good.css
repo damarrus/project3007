@@ -117,4 +117,8 @@
 .goods-main .goods-empty {
   height: 78px;
 }
+
+.goods-main .goods-size-item-selected {
+  background: #f68236;
+}
 /*# sourceMappingURL=good.css.map */

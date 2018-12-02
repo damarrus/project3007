@@ -27,4 +27,6 @@
         echo '<h2>'.$product->getOutOfStock().'</h2>';
     } ?>
 </main>
+<script src="../lib/jquery-3.3.1.min.js"></script>
+<script src="../js/product.js"></script>
 <!-- <?php require_once "../templates/footer.php" ?> -->
