@@ -77,6 +77,10 @@
   margin-bottom: 40px;
 }
 
+.goods-main .goods-size-item:last-of-type {
+  margin-right: 0;
+}
+
 .goods-main .goods-size-item:hover {
   cursor: pointer;
 }
