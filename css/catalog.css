@@ -97,8 +97,12 @@
 }
 
 .catalog-items .catalog-item-price {
-  margin: 15px 0 20px 0;
+  margin: 15px 0 10px 0;
   text-align: center;
+}
+
+.catalog-size {
+  margin-bottom: 10px;
 }
 
 .catalog-pages {
