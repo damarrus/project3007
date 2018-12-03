@@ -2,9 +2,9 @@
             <section class="flex-container">
                 <div class="flex-container-block">
                     <h3>КОНТАКТЫ</h3>
-                    <a href="#">Женщинам (1725)</a>
-                    <a href="#">Мужчинам (635)</a>
-                    <a href="#">Детям (2514)</a>
+                    <a href="../controllers/catalog.php?collection_id=2">Женщинам (1725)</a>
+                    <a href="../controllers/catalog.php?collection_id=1">Мужчинам (635)</a>
+                    <a href="../controllers/catalog.php?collection_id=3">Детям (2514)</a>
                     <a href="#">Новинки (76)</a>
                 </div>
                 <div class="flex-container-block" style="padding-left: 150px;">
