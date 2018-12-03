@@ -31,18 +31,27 @@ class Product
         $this->out_of_stock = $product_data['out_of_stock'];
     }
 
-    public static function getAll($category_id = false, $collection_id = false)
+    public static function getAll($category_id = false, $collection_id = false, $order_id = false)
     {
         global $mysqli;
         $conditions = '';
+        $tables = 'products p';
         if ($category_id) {
-            $conditions .= " AND category_id=$category_id";
+            $conditions .= " AND p.category_id=$category_id";
         }
         if ($collection_id) {
-            $conditions .= " AND collection_id=$collection_id";
+            $conditions .= " AND p.collection_id=$collection_id";
         }
 
-        $query = "SELECT product_id FROM products WHERE 1 $conditions ORDER BY product_id";
+        if ($order_id) {
+            $conditions .= " AND op.product_id=p.product_id AND op.order_id=$order_id";
+            $tables .= ', order_products op';
+        }
+
+
+        $query = "SELECT p.product_id FROM $tables WHERE 1 $conditions ORDER BY p.product_id";
+       
+
         $result = $mysqli->query($query);
 
         $products = [];
@@ -88,11 +97,6 @@ class Product
         return $this->product_id;
     }
 
-    public function getCategoryId()
-    {
-        return $this->category_id;
-    }
-
     public function getCollectionId()
     {
         return $this->collection_id;
@@ -110,3 +114,5 @@ class Product
 
 }
 
+// SELECT * FROM order_products op, products p
+// WHERE op.order_id=1 AND op.product_id=p.product_id
