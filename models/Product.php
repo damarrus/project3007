@@ -12,6 +12,7 @@ class Product
     private $category_id;
     private $collection_id;
     private $out_of_stock;
+    private $collection_id;
 
     public function __construct($id)
     {
@@ -85,6 +86,11 @@ class Product
     public function getCategoryId()
     {
         return $this->category_id;
+    }
+
+    public function getCollectionId()
+    {
+        return $this->collection_id;
     }
 
     public function getOutOfStock()
