@@ -14,21 +14,22 @@
         <header>
             <div class="header-container-nav">
                 <div class="header-container-logo">
-                    <img src="../images/logo.jpg" alt="shop-logo" class="logo">
+                    
+                    <a href="../controllers/main.php"><img src="../images/logo.jpg" alt="shop-logo" class="logo"></a>
                 </div>
                 <nav>
-                    <a href="#">Женщинам</a>
-                    <a href="#">Мужчинам</a>
-                    <a href="#">Детям</a>
+                    <a href="../controllers/catalog.php?collection_id=2">Женщинам</a>
+                    <a href="../controllers/catalog.php?collection_id=1">Мужчинам</a>
+                    <a href="../controllers/catalog.php?collection_id=3">Детям</a>
                     <a href="#">Новинки</a>
                     <a href="#">О нас</a>
                 </nav>
             </div>
             <div class="header-container-enter-and-bascet">
                 <img src="../images/account.png" alt="enter-image">
-                <a href="#">Войти</a>
+                <a href="../controllers/admin_auth.php">Войти</a>
                 <img src="../images/bascet.png" alt="bascet-image">
-                <a href="#">Корзина</a>
+                <a href="../controllers/cart.php">Корзина</a>
             </div>
         </header>
         <hr>
