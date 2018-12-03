@@ -1,4 +1,4 @@
-<!-- <?php require_once "../templates/header.php" ?> -->
+<?php require_once "../templates/header.php" ?>
 <main class="goods-main">
     <link rel="stylesheet" href="../css/good.css">
     <div class="goods-category">ГЛАВНАЯ / МУЖЧИНАМ / ОБУВЬ / КЕДЫ С ПОЛОСКОЙ</div>
@@ -29,4 +29,4 @@
 </main>
 <script src="../lib/jquery-3.3.1.min.js"></script>
 <script src="../js/product.js"></script>
-<!-- <?php require_once "../templates/footer.php" ?> -->
+<?php require_once "../templates/footer.php" ?>
