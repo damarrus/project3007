@@ -9,6 +9,7 @@
             <option>Куртки</option>
             <option>Джинсы</option>
             <option>Обувь</option>
+
         </select>
         <select class="catalog-flex-select1">
             <option>M</option>
