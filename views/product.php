@@ -1,4 +1,4 @@
-<!-- <?php require_once "../templates/header.php" ?> -->
+<?php require_once "../templates/header.php" ?>
 <main class="goods-main">
     <link rel="stylesheet" href="../css/good.css">
     <div class="goods-category">ГЛАВНАЯ / МУЖЧИНАМ / ОБУВЬ / КЕДЫ С ПОЛОСКОЙ</div>
@@ -13,11 +13,12 @@
     <div class="goods-size-items">
     <?php 
         foreach ($sizes as $size) {
-            echo '<div class="goods-size-item">' . $size['value'] . '</div>';
+            echo '<div class="goods-size-item" data-id="' .$size['size_id'] . '">' . $size['value'] . '</div>';
         }
     ?>
     </div>
-    <div class="goods-add-to-cart-button"> ДОБАВИТЬ В КОРЗИНУ</div>
+    <div class="goods-add-to-cart-button" data-id="<?php echo $product->getProductId()?>"> ДОБАВИТЬ В КОРЗИНУ </div>
+    
     <div class="goods-empty"></div>
     <?php foreach ($product as $products) {
         echo '<h2>'.$product->getTitle().'</h2>';
@@ -29,4 +30,4 @@
 </main>
 <script src="../lib/jquery-3.3.1.min.js"></script>
 <script src="../js/product.js"></script>
-<!-- <?php require_once "../templates/footer.php" ?> -->
+<?php require_once "../templates/footer.php" ?>

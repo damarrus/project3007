@@ -50,3 +50,8 @@
 .forma{
     margin: 30px auto;
 }
+
+.address-form {
+    border: 3px solid rgb(240, 103, 39);
+    padding: 10px 15px;
+}
