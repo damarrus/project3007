@@ -45,7 +45,7 @@
                     echo '<option value="'. $size['size_id'] . '" class="catalog-size-item">' . $size['value'] . '</option>';
                 }
                 echo '</select></div>';
-                echo '<div class="catalog-add-to-cart-button">ДОБАВИТЬ В КОРЗИНУ</div>' . '</div>';
+                echo '<div class="catalog-add-to-cart-button" data-id=' . $product->getProductId() . ' ">ДОБАВИТЬ В КОРЗИНУ</div>' . '</div>';
             }
             echo "</div>";
         }
