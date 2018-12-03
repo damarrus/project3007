@@ -26,5 +26,7 @@
             </section>
         </footer>
     </div>
+    <script src="../jquery-3.3.1.min.js"></script>
+    <script src="../js/ajax_add_cart.js"></script>
 </body>
 </html>

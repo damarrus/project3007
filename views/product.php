@@ -7,18 +7,17 @@
     </div>
     <?php echo '<h1 class="goods-title">'.$product->getTitle().'</h1>'?>
     <div class="goods-vendor-code">Артикул: 385904</div>
-    <?php echo '<div class="goods-price">'.$product->getPrice().'</div>' ?>
+    <?php echo '<div class="goods-price">'.$product->getPrice().' руб.</div>' ?>
     <?php echo '<div class="goods-description">'.$product->getDescription().'</div>'?>
     <div class="goods-size">РАЗМЕР</div>
     <div class="goods-size-items">
-        <div class="goods-size-item">38</div>
-        <div class="goods-size-item">39</div>
-        <div class="goods-size-item">40</div>
-        <div class="goods-size-item">41</div>
-        <div class="goods-size-item">42</div>
-        <div class="goods-size-item-absent">43</div>
+    <?php 
+        foreach ($sizes as $size) {
+            echo '<div class="goods-size-item">' . $size['value'] . '</div>';
+        }
+    ?>
     </div>
-    <div class="goods-add-to-cart-button">ДОБАВИТЬ В КОРЗИНУ</div>
+    <div class="goods-add-to-cart-button"> ДОБАВИТЬ В КОРЗИНУ</div>
     <div class="goods-empty"></div>
     <?php foreach ($product as $products) {
         echo '<h2>'.$product->getTitle().'</h2>';
@@ -28,4 +27,6 @@
         echo '<h2>'.$product->getOutOfStock().'</h2>';
     } ?>
 </main>
+<script src="../lib/jquery-3.3.1.min.js"></script>
+<script src="../js/product.js"></script>
 <!-- <?php require_once "../templates/footer.php" ?> -->

@@ -1,5 +1,4 @@
 <?php
-
 require_once '../db.php';
 
 class Collection 
@@ -24,7 +23,6 @@ class Collection
     public static function getAll()
     {
         global $mysqli;
-
         $query = "SELECT collection_id FROM collections";
         $result = $mysqli->query($query);
 
@@ -32,17 +30,12 @@ class Collection
         while ($collection_data = $result->fetch_assoc()) {
             $collections[] = new Collection($collection_data['collection_id']);
         }
-
         return $collections;
     }
 
-    public function updatePass($new_pass) 
+    public function getTitle()
     {
-        global $mysqli;
-
-        $query = "UPDATE collections SET pass='$new_pass' WHERE collection_id=" . $this->id;
-        $result = $mysqli->query($query);
-        
-        return $result;
+        return $this->title;
     }
+
 }

@@ -1,9 +1,9 @@
 <?php require_once "../templates/header.php" ?>
 <link rel="stylesheet" href="../css/catalog.css">
 <main class="catalog-main">
-    <div class="catalog-category">ГЛАВНАЯ / МУЖЧИНАМ </div>
-    <h1 class="catalog-title">МУЖЧИНАМ</h1>
-    <div class="catalog-title-tovar">Все товары</div>
+    <div class="catalog-category">КАТАЛОГ / <?php echo mb_strtoupper($collection_title) . " / " . mb_strtoupper($category_title);?></div>
+    <h1 class="catalog-title"><?php echo mb_strtoupper($collection_title);?></h1>
+    <div class="catalog-title-tovar"><?php echo $category_title;?></div>
     <div class="catalog-flex-select">
         <select class="catalog-flex-select1">
             <option>Куртки</option>
@@ -23,12 +23,31 @@
     </div>
 
     <?php
-        echo "<div class=\"catalog-items\">"; 
-        foreach ($products as $product) {
-            echo '<div class="catalog-item">' . '<div><a href="../controllers/product.php?id=' . $product->getProductId() . '"><img class="catalog-item-image" src="../images/catalog/' . $product->getProductId() . '.jpg"></a></div>' . 
-                 $product->getTitle() . '<br>' . '<div class="catalog-item-price">' . $product->getPrice() . ' руб.' . '</div>' . '<div class="catalog-add-to-cart-button">ДОБАВИТЬ В КОРЗИНУ</div>' . '</div>';
-        } 
-        echo "</div>";
+        if ($products == NULL) {
+            echo "<div class=\"catalog-items\">Товаров, соответствующих данным критериям, не найдено.</div>";
+        } else {
+            echo "<div class=\"catalog-items\">";
+            foreach ($products as $product) {
+                echo '<div class="catalog-item">' . 
+                        '<div class="catalog-image-container">
+                            <a href="../controllers/product.php?id=' . $product->getProductId() . 
+                                '"><img class="catalog-item-image" src="../images/catalog/' . $product->getImage() . '">
+                            </a>
+                        </div>' . 
+                        $product->getTitle() . '<br>' . 
+                        '<div class="catalog-item-price">' . $product->getPrice() . ' руб.' . 
+                     '</div>';
+                $sizes = $product->getSizeIdAndValues();
+                echo '<div class="catalog-flex-select catalog-size">
+                        <select name="size_id">';
+                foreach ($sizes as $size) {
+                    echo '<option value="'. $size['size_id'] . '" class="catalog-size-item">' . $size['value'] . '</option>';
+                }
+                echo '</select></div>';
+                echo '<div class="catalog-add-to-cart-button">ДОБАВИТЬ В КОРЗИНУ</div>' . '</div>';
+            }
+            echo "</div>";
+        }
     ?>
     <div class="catalog-pages">
         <div class="catalog-page">1</div>

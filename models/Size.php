@@ -13,7 +13,7 @@ class Size
         $result = $mysqli->query($query);
         $size_data = $result->fetch_assoc();
         $this->id = $id;
-        $this->value = $size['value'];
+        $this->value = $size_data['value'];
     }
 
     public function getProductValue($product_id)
