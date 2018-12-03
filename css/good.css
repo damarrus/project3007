@@ -17,6 +17,7 @@
 .goods-main .goods-image .goods-image-item {
   display: block;
   margin: 0 auto;
+  max-height: 400px;
 }
 
 .goods-main .goods-title {
@@ -77,6 +78,10 @@
   margin-bottom: 40px;
 }
 
+.goods-main .goods-size-item:last-of-type {
+  margin-right: 0;
+}
+
 .goods-main .goods-size-item:hover {
   cursor: pointer;
 }
@@ -112,5 +117,9 @@
 
 .goods-main .goods-empty {
   height: 78px;
+}
+
+.goods-main .goods-size-item-selected {
+  background: #f68236;
 }
 /*# sourceMappingURL=good.css.map */

@@ -28,8 +28,23 @@
         } else {
             echo "<div class=\"catalog-items\">";
             foreach ($products as $product) {
-                echo '<div class="catalog-item">' . '<div class="catalog-image-container"><a href="../controllers/product.php?id=' . $product->getProductId() . '"><img class="catalog-item-image" src="../images/catalog/' . $product->getProductId() . '.jpg"></a></div>' . 
-             $product->getTitle() . '<br>' . '<div class="catalog-item-price">' . $product->getPrice() . ' руб.' . '</div>' . '<div class="catalog-add-to-cart-button">ДОБАВИТЬ В КОРЗИНУ</div>' . '</div>';
+                echo '<div class="catalog-item">' . 
+                        '<div class="catalog-image-container">
+                            <a href="../controllers/product.php?id=' . $product->getProductId() . 
+                                '"><img class="catalog-item-image" src="../images/catalog/' . $product->getImage() . '">
+                            </a>
+                        </div>' . 
+                        $product->getTitle() . '<br>' . 
+                        '<div class="catalog-item-price">' . $product->getPrice() . ' руб.' . 
+                     '</div>';
+                $sizes = $product->getSizeIdAndValues();
+                echo '<div class="catalog-flex-select catalog-size">
+                        <select name="size_id">';
+                foreach ($sizes as $size) {
+                    echo '<option value="'. $size['size_id'] . '" class="catalog-size-item">' . $size['value'] . '</option>';
+                }
+                echo '</select></div>';
+                echo '<div class="catalog-add-to-cart-button">ДОБАВИТЬ В КОРЗИНУ</div>' . '</div>';
             }
             echo "</div>";
         }

@@ -63,6 +63,29 @@ class Product
         return $products;
     }
 
+    public function getSizes()
+    {
+        global $mysqli;
+        $query = "SELECT size_id FROM product_sizes WHERE product_id={$this->product_id} ORDER BY size_id";
+        $result = $mysqli->query($query);
+        $sizes = [];
+        while ($size_item = $result->fetch_assoc()) {
+            $sizes[] = $size_item;
+        }
+        return $sizes;
+    }
+
+    public function getSizeIdAndValues() {
+        global $mysqli;
+        $query = "SELECT ps.size_id, value FROM sizes, product_sizes ps WHERE product_id={$this->product_id} AND ps.size_id=sizes.size_id";
+        $result = $mysqli->query($query);
+        $sizes = [];
+        while ($size_item = $result->fetch_assoc()) {
+            $sizes[] = $size_item;
+        }
+        return $sizes;
+    }
+
     public function getTitle()
     {
         return $this->title;
