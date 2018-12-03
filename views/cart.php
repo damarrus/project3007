@@ -53,6 +53,10 @@
                     <input type="email" name="" id="" class="form">
                 </div>
             </div>
+            <form class="address-form" action="../controllers/check_out.php" method="POST">
+                <input type="text" name="address" id="" max-lenght="60">
+                <input type="submit" value="Отправить заказ" id="submit-btn">
+            </form>
         </div>
     </div>
 <?php require_once "../templates/footer.php" ?>

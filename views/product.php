@@ -13,11 +13,12 @@
     <div class="goods-size-items">
     <?php 
         foreach ($sizes as $size) {
-            echo '<div class="goods-size-item">' . $size['value'] . '</div>';
+            echo '<div class="goods-size-item" data-id="' .$size['size_id'] . '">' . $size['value'] . '</div>';
         }
     ?>
     </div>
-    <div class="goods-add-to-cart-button"> ДОБАВИТЬ В КОРЗИНУ</div>
+    <div class="goods-add-to-cart-button" data-id="<?php echo $product->getProductId()?>"> ДОБАВИТЬ В КОРЗИНУ </div>
+    
     <div class="goods-empty"></div>
     <?php foreach ($product as $products) {
         echo '<h2>'.$product->getTitle().'</h2>';
