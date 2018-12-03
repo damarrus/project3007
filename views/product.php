@@ -18,7 +18,7 @@
         <div class="goods-size-item">42</div>
         <div class="goods-size-item-absent">43</div>
     </div>
-    <div class="goods-add-to-cart-button">ДОБАВИТЬ В КОРЗИНУ</div>
+    <div class="goods-add-to-cart-button"> ДОБАВИТЬ В КОРЗИНУ</div>
     <div class="goods-empty"></div>
     <?php foreach ($product as $products) {
         echo '<h2>'.$product->getTitle().'</h2>';
