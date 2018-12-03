@@ -22,6 +22,7 @@ if (isset($_GET['collection_id'])) {
 }
 
 $products = Product::getAll($category_id, $collection_id);
+$categories = Category::getAll();
 
 $page_name = 'Каталог';
 require_once '../views/catalog.php';

@@ -5,11 +5,16 @@
     <h1 class="catalog-title"><?php echo mb_strtoupper($collection_title);?></h1>
     <div class="catalog-title-tovar"><?php echo $category_title;?></div>
     <div class="catalog-flex-select">
-        <select class="catalog-flex-select1">
+        <!-- <select class="catalog-flex-select1">
             <option>Куртки</option>
             <option>Джинсы</option>
             <option>Обувь</option>
+        </select> -->
 
+        <select>
+                <?php foreach ($categories as $category) {
+                echo '<option>'.$category->getTitle().'</option>';
+                } ?> 
         </select>
         <select class="catalog-flex-select1">
             <option>M</option>
