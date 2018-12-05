@@ -20,4 +20,6 @@ foreach ($_SESSION['cart'] as $cart_product) {
         "product_count" => $product_count
     ];
 }
+
+$page_name = "Корзина";
 require_once("../views/cart.php");
