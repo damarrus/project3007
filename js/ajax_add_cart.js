@@ -22,7 +22,8 @@ $(document).ready(function () {
         size_id = $(this).data('id');
     });
 
-    var add2 = $('catalog-add-to-cart-button');
+    size_id = 0;
+    var add2 = $('.catalog-add-to-cart-button');
     add2.click(function () {
         if (size_id != 0) {
             $.post('../controllers/add_to_cart.php', { 
@@ -34,9 +35,12 @@ $(document).ready(function () {
         else {
             alert ('Укажите размер');
         }   
-        console.log(add);
-
+        console.log(add2);
     });
 
-
+    $('[name="size_id"]').change(function() {
+       var value = $(this).val();
+        size_id = value;
+       console.log(value);
+    });
 });
