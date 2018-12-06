@@ -50,13 +50,16 @@ class User
 
     public static function getByEmailPass ($email, $pass){
         global $mysqli;
-        $query = "SELECT user_id FROM users WHERE email='$email', pass='$pass'";
+        $query = "SELECT user_id FROM users WHERE email='$email' AND pass='$pass'";
         $result = $mysqli->query($query);
-        if(empty($result)){
-            return true;
+        if (empty($result)) {
+            echo '1';
         } else {
-            return false;
+            echo '2';
         }
     }
 
 }
+
+$res = User::getByEmailPass('admin@admin.ru', '1456');
+var_dump($res);
