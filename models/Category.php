@@ -32,6 +32,13 @@ class Category
         return $this->title;
     }
 
+    public function getId()
+    {
+        return $this->id;
+
+    }   
+    
+
     public function createTable($new_category) 
     {
         global $mysqli;

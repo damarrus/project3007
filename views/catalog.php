@@ -1,6 +1,6 @@
 <?php require_once "../templates/header.php" ?>
 <link rel="stylesheet" href="../css/catalog.css">
-<main class="catalog-main">
+<main class="catalog-main" data-collection-id="<?php echo $collection_id;?>">
     <div class="catalog-category">КАТАЛОГ / <?php echo mb_strtoupper($collection_title) . " / " . mb_strtoupper($category_title);?></div>
     <h1 class="catalog-title"><?php echo mb_strtoupper($collection_title);?></h1>
     <div class="catalog-title-tovar"><?php echo $category_title;?></div>
@@ -11,9 +11,9 @@
             <option>Обувь</option>
         </select> -->
 
-        <select>
+        <select id="select-category">
                 <?php foreach ($categories as $category) {
-                echo '<option>'.$category->getTitle().'</option>';
+                echo '<option value="'.$category->getId().'">'.$category->getTitle().'</option>';
                 } ?> 
         </select>
         <select class="catalog-flex-select1">
@@ -61,5 +61,9 @@
         <div class="catalog-page-disabled">3</div>
         <div class="catalog-page-disabled">4</div>  
     </div>
+
+    <script src="../jquery-3.3.1.min.js"></script>
+    <script src="../js/catalog.js"></script>
+    
 </main>
 <?php require_once "../templates/footer.php" ?>
