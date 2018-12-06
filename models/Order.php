@@ -1,5 +1,6 @@
 <?php
 require_once "../db.php";
+require_once "../models/Product.php";
 
 class Order 
 {
@@ -112,6 +113,21 @@ class Order
         global $mysqli;
         $query = "INSERT INTO orders (status, address, user_id) VALUES (1, '$address', 0)";
         $result = $mysqli->query($query);
+        $new_order = new Order($mysqli->insert_id);
+        return $new_order;
     }
 
+    public function addOrderProduct($product_id, $size_id, $count)
+    {
+        global $mysqli;
+        $product = new Product($product_id);
+        $product_price = $product->getPrice();
+        $query_check = "SELECT * FROM order_products WHERE order_id={$this->id} AND product_id=$product_id AND size_id=$size_id AND count=$count";
+        $result_check = $mysqli->query($query_check);
+        $result_check_assoc = $result_check->fetch_assoc();
+        if ($result_check_assoc == NULL) {
+            $query = "INSERT INTO order_products (order_id, product_id, size_id, price, count) VALUES ({$this->id}, $product_id, $size_id, $product_price, $count)";
+            $result = $mysqli->query($query);
+        }
+    }
 }
