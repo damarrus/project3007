@@ -50,11 +50,12 @@ class User
 
     public static function getByEmailPass ($email, $pass){
         global $mysqli;
-        $query = "SELECT pass FROM users WHERE email=$email"
-        if( ($this->email == $email) and ($this->pass == $pass) ){
-            echo 'Вы авторизированы';
-        }else{
-            echo 'Неверный логин или пароль';
+        $query = "SELECT user_id FROM users WHERE email='$email', pass='$pass'";
+        $result = $mysqli->query($query);
+        if(empty($result)){
+            return true;
+        } else {
+            return false;
         }
     }
 
