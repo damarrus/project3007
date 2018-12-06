@@ -110,10 +110,8 @@ class Order
     public static function create($address)
     {
         global $mysqli;
-
         $query = "INSERT INTO orders (status, address, user_id) VALUES (1, '$address', 0)";
         $result = $mysqli->query($query);
-
     }
 
 }
