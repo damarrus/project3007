@@ -47,4 +47,20 @@ class User
         
         return $result;
     }
+
+    public static function getByEmailPass ($email, $pass){
+        global $mysqli;
+        $query = "SELECT user_id FROM users WHERE email='$email' AND pass='$pass'";
+        $result = $mysqli->query($query);
+        
+        if ($result != NULL) {
+            header ('Location: main.php');
+        } else {
+            echo 'Ошибка'; 
+        }
+    }
+
 }
+
+// $res = User::getByEmailPass('admin@admin.ru', '123456');
+// var_dump($res);
