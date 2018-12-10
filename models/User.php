@@ -52,14 +52,15 @@ class User
         global $mysqli;
         $query = "SELECT user_id FROM users WHERE email='$email' AND pass='$pass'";
         $result = $mysqli->query($query);
-        if (empty($result)) {
-            echo '1';
+        
+        if ($result != NULL) {
+            header ('Location: main.php');
         } else {
-            echo '2';
+            echo 'Ошибка'; 
         }
     }
 
 }
 
-$res = User::getByEmailPass('admin@admin.ru', '1456');
-var_dump($res);
+// $res = User::getByEmailPass('admin@admin.ru', '123456');
+// var_dump($res);

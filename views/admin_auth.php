@@ -18,10 +18,10 @@
   <body>   
       
   
-    <form>
+    <form action="../controllers/admin_auth.php" method="POST">
         <h1>Страница авторизации</h1> 
-        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Email">
-        <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+        <input type="email" name="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Email">
+        <input type="password" name="pass" class="form-control" id="exampleInputPassword1" placeholder="Password">
         <button type="submit" class="btn btn-primary">Зарегистрироваться</button>
     </form>
   </body>
