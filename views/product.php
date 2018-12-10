@@ -1,7 +1,7 @@
 <?php require_once "../templates/header.php" ?>
 <main class="goods-main">
     <link rel="stylesheet" href="../css/good.css">
-    <div class="goods-category">ГЛАВНАЯ / МУЖЧИНАМ / ОБУВЬ / КЕДЫ С ПОЛОСКОЙ</div>
+    <div class="goods-category">КАТАЛОГ / <?php echo mb_strtoupper($collection) . " / " . mb_strtoupper($category); ?></div>
     <div class="goods-image">
         <?php echo '<img src="../images/catalog/'.$product->getImage().'" alt="good-image" class="goods-image-item">'?>
     </div>
